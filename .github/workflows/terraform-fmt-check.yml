@@ -1,0 +1,17 @@
+name: terraform-fmt-check
+
+on: [push]
+
+jobs:
+  terraform-fmt-check:
+    runs-on: ubuntu-latest
+    name: terraform-fmt-check
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: terraform fmt
+        uses: dflook/terraform-fmt-check@v1
+        id: fmt-check
+        with:
+          path: terraform
